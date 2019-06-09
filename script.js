@@ -32,6 +32,21 @@ function createFood() {
   ctx.fillRect(food.x * pixelSize, food.y * pixelSize, pixelSize, pixelSize);
 }
 
+function drawGrid(w, h, step) {
+  ctx.beginPath();
+  for (let x = 0; x <= w; x += step) {
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, h);
+  }
+  for (let y = 0; y <= h; y += step) {
+    ctx.moveTo(0, y);
+    ctx.lineTo(w, y);
+  }
+  ctx.strokeStyle = "gray";
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+}
+
 function showResult() {
   ctx.fillStyle = "#FFC107";
   ctx.fillRect(0, 0, 200, 200);
@@ -54,6 +69,7 @@ function game() {
 
   createSnake();
   createFood();
+  drawGrid(width, height, 20);
 
   let snakeHeadX = snakeBody[snakeLength - 1].x + directionX;
   let snakeHeadY = snakeBody[snakeLength - 1].y + directionY;
@@ -63,7 +79,7 @@ function game() {
     snakeHeadX == xSize ||
     snakeHeadY == ySize
   ) {
-    gameOver();
+    gameOver(1000, 1000, 20);
   }
 
   snakeBody.push({ x: snakeHeadX, y: snakeHeadY });
