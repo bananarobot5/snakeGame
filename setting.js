@@ -22,3 +22,4 @@ let food = {
 };
 let directionX = 1;
 let directionY = 0;
+let score = 0;

@@ -12,6 +12,7 @@ function gameinit() {
     x: Math.floor(Math.random() * xSize - 1) + 1,
     y: Math.floor(Math.random() * ySize - 1) + 1
   };
+  score = 0;
 } //변수값 초기화
 
 function createSnake() {
@@ -33,12 +34,12 @@ function createFood() {
 
 function showResult() {
   ctx.fillStyle = "#FFC107";
-  ctx.fillRect(0, 0, width / 3, height / 3);
+  ctx.fillRect(0, 0, 200, 200);
   ctx.fillStyle = "#3F51B5";
-  ctx.font = "40px san-serif";
-  ctx.fillText("Result", 0, 0);
-  ctx.font = "30px san-serif";
-  //context.fillText(`Score : ${score}`, 110, 250);
+  ctx.font = "40px Calibri";
+  ctx.fillText("Result", 45, 60);
+  ctx.font = "30px Calibri";
+  ctx.fillText(`Score : ${score}`, 45, 150);
 } //Result 화면 표시
 
 function gameOver() {
@@ -73,6 +74,7 @@ function game() {
       y: Math.floor(Math.random() * ySize - 1) + 1
     };
     snakeLength += 1;
+    score += 1;
   } else {
     snakeBody.shift();
   }

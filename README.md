@@ -6,5 +6,5 @@
 
 - [x] Main
 - [x] Penalty
-- [ ] Score
+- [x] Score
 - [ ] Customize
