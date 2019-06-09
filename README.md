@@ -5,6 +5,6 @@
 ### Features
 
 - [x] Main
-- [ ] Penalty
+- [x] Penalty
 - [ ] Score
 - [ ] Customize
