@@ -11,11 +11,6 @@
   color: white;
 }
 
-#startBtn:disabled {
-  background-color: #616161;
-  cursor: default;
-}
-
 canvas {
   position: fixed;
   left: 50%;
