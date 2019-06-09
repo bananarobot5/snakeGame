@@ -1,15 +1,113 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const btn = document.getElementById("startBtn");
 const width = 400;
 const height = 400;
 const pixelSize = 10;
+let xSize = width / pixelSize;
+let ySize = height / pixelSize;
 let snakeBody = [
-  { x: 100, y: 150 },
-  { x: 101, y: 150 },
-  { x: 102, y: 150 },
-  { x: 103, y: 150 }
+  { x: 10, y: 15 },
+  { x: 11, y: 15 },
+  { x: 12, y: 15 },
+  { x: 13, y: 15 }
 ];
-let snakeLength = snakeBody.length;
-let food = { x: 300, y: 150 };
+let snakeLength = 4;
+let food = { x: 30, y: 15 };
+let directionX = 1;
+let directionY = 0;
 
-console.log(snakeLength);
+function createSnake() {
+  ctx.fillStyle = "#4CAF50";
+  for (let i = 0; i < snakeLength; i++) {
+    ctx.fillRect(
+      snakeBody[i].x * pixelSize,
+      snakeBody[i].y * pixelSize,
+      pixelSize,
+      pixelSize
+    );
+  }
+}
+
+function createFood() {
+  ctx.fillStyle = "#E91E63";
+  ctx.fillRect(food.x * pixelSize, food.y * pixelSize, pixelSize, pixelSize);
+}
+
+function game() {
+  ctx.fillStyle = "#37474F";
+  ctx.fillRect(0, 0, width, height);
+
+  createSnake();
+  createFood();
+
+  let snakeHeadX = (snakeBody[snakeLength - 1].x + directionX) % xSize;
+  let snakeHeadY = (snakeBody[snakeLength - 1].y + directionY) % ySize;
+  if (snakeHeadX < 0) {
+    snakeHeadX += xSize;
+  } else if (snakeHeadY < 0) {
+    snakeHeadY += ySize;
+  }
+
+  snakeBody.push({ x: snakeHeadX, y: snakeHeadY });
+
+  if (snakeHeadX === food.x && snakeHeadY === food.y) {
+    food = {
+      x: Math.floor(Math.random() * xSize - 1) + 1,
+      y: Math.floor(Math.random() * ySize - 1) + 1
+    };
+    snakeLength += 1;
+  } else {
+    snakeBody.shift();
+  }
+}
+
+function keyPush(evt) {
+  switch (evt.keyCode) {
+    case 37:
+      if (!(directionX === 1 && directionY === 0)) {
+        directionX = -1;
+        directionY = 0;
+        console.log("left");
+      }
+      break;
+
+    case 38:
+      if (!(directionX === 0 && directionY === 1)) {
+        directionX = 0;
+        directionY = -1;
+        console.log("up");
+      }
+      break;
+
+    case 39:
+      if (!(directionX === -1 && directionY === 0)) {
+        directionX = 1;
+        directionY = 0;
+        console.log("right");
+      }
+      break;
+
+    case 40:
+      if (!(directionX === 0 && directionY === -1)) {
+        directionX = 0;
+        directionY = 1;
+        console.log("down");
+      }
+      break;
+  }
+}
+
+function startGame() {
+  console.log("Start Game!");
+  btn.setAttribute("disabled", true);
+  setInterval(game, 1000 / 15);
+}
+
+function init() {
+  var btn = document.getElementById("startBtn");
+  document.addEventListener("keydown", keyPush);
+  btn.addEventListener("click", startGame);
+}
+
+init();

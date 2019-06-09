@@ -2,5 +2,6 @@
 
 ### Features
 
-- [ ] Main Game
+- [x] Main
+- [ ] Penalty
 - [ ] Score
