@@ -5,3 +5,4 @@
 - [x] Main
 - [ ] Penalty
 - [ ] Score
+- [ ] Customize

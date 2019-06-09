@@ -1,0 +1,32 @@
+#startBtn {
+  border-radius: 5px;
+  border: 0px;
+  background-color: #009688;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+#startBtn:disabled {
+  background-color: #616161;
+  cursor: default;
+}
+
+canvas {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+body {
+  background-color: #212121;
+}

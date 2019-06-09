@@ -1,10 +1,11 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const btn = document.getElementById("startBtn");
-const width = 400;
-const height = 400;
-const pixelSize = 10;
-let xSize = width / pixelSize;
+const width = 1000;
+const height = 1000;
+const pixelSize = 50;
+let gameSpeed = 60;
+let xSize = width / pixelSize; //20~40 적당
 let ySize = height / pixelSize;
 let snakeBody = [
   { x: 10, y: 15 },
@@ -13,7 +14,10 @@ let snakeBody = [
   { x: 13, y: 15 }
 ];
 let snakeLength = 4;
-let food = { x: 30, y: 15 };
+let food = {
+  x: Math.floor(Math.random() * xSize - 1) + 1,
+  y: Math.floor(Math.random() * ySize - 1) + 1
+};
 let directionX = 1;
 let directionY = 0;
 
@@ -101,7 +105,7 @@ function keyPush(evt) {
 function startGame() {
   console.log("Start Game!");
   btn.setAttribute("disabled", true);
-  setInterval(game, 1000 / 15);
+  setInterval(game, gameSpeed);
 }
 
 function init() {
