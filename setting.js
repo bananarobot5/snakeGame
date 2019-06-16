@@ -12,8 +12,6 @@ function getParameter(paramName) {
   }
 } //get parameter 얻음
 
-console.log(parseInt(getParameter("width")));
-
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const startBtn = document.getElementById("startBtn");

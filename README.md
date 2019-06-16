@@ -8,3 +8,4 @@
 - [x] Penalty
 - [x] Score
 - [x] Customize
+  - [ ] Just click Start, game start
