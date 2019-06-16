@@ -69,10 +69,10 @@ function game() {
 
   createSnake();
   createFood();
-  drawGrid(width, height, 20);
+  drawGrid(width, height, pixelSize);
 
-  let snakeHeadX = snakeBody[snakeLength - 1].x + directionX;
-  let snakeHeadY = snakeBody[snakeLength - 1].y + directionY;
+  const snakeHeadX = snakeBody[snakeLength - 1].x + directionX;
+  const snakeHeadY = snakeBody[snakeLength - 1].y + directionY;
   if (
     snakeHeadX == -1 ||
     snakeHeadY == -1 ||

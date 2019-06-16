@@ -1,14 +1,30 @@
+function getParameter(paramName) {
+  let returnValue;
+  const url = location.href;
+  const parameters = url.slice(url.indexOf("?") + 1, url.length).split("&");
+
+  for (let i = 0; i < parameters.length; i++) {
+    const name = parameters[i].split("=")[0];
+    if (name.toUpperCase() == paramName.toUpperCase()) {
+      returnValue = parameters[i].split("=")[1];
+      return decodeURIComponent(returnValue);
+    }
+  }
+} //get parameter 얻음
+
+console.log(parseInt(getParameter("width")));
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const startBtn = document.getElementById("startBtn");
 const restartBtn = document.getElementById("restartBtn");
-const width = 1000;
-const height = 1000;
-const pixelSize = 20;
+const width = parseInt(getParameter("width"));
+const height = parseInt(getParameter("height"));
+const pixelSize = parseInt(getParameter("pixelSize"));
 
-let gameSpeed = 60;
-let xSize = width / pixelSize; //20~40 적당
-let ySize = height / pixelSize;
+const gameSpeed = 60;
+const xSize = width / pixelSize; //20~40 적당
+const ySize = height / pixelSize;
 let snakeBody = [
   { x: 1, y: 15 },
   { x: 2, y: 15 },
