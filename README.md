@@ -7,4 +7,4 @@
 - [x] Main
 - [x] Penalty
 - [x] Score
-- [ ] Customize
+- [x] Customize

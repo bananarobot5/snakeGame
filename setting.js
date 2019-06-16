@@ -22,7 +22,7 @@ const width = parseInt(getParameter("width"));
 const height = parseInt(getParameter("height"));
 const pixelSize = parseInt(getParameter("pixelSize"));
 
-const gameSpeed = 60;
+const gameSpeed = parseInt(getParameter("gameSpeed"));
 const xSize = width / pixelSize; //20~40 적당
 const ySize = height / pixelSize;
 let snakeBody = [

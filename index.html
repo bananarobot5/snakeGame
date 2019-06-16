@@ -13,25 +13,30 @@
       <button id="startBtn">Start</button>
       <button id="restartBtn">Restart</button>
     </div>
-    <div>
+    <div id="form">
       <form method="get">
         <div>
-          <label for="width">Width:</label>
-          <input type="number" name="width" />
+          <button for="width">Width</button><br />
+          <input type="number" name="width" placeholder="1000" />
         </div>
 
         <div>
-          <label for="height">Height:</label>
-          <input type="number" name="height" />
+          <button for="height">Height</button><br />
+          <input type="number" name="height" placeholder="1000" />
         </div>
 
         <div>
-          <label for="pixelSize">Pixel Size:</label>
-          <input type="number" name="pixelSize" />
+          <button for="pixelSize">Pixel Size</button><br />
+          <input type="number" name="pixelSize" placeholder="20" />
         </div>
 
         <div>
-          <button type="submit">Submit</button>
+          <button for="gameSpeed">Game Speed</button><br />
+          <input type="number" name="gameSpeed" placeholder="60" />
+        </div>
+
+        <div>
+          <button type="submit" id="submit">Submit</button>
         </div>
       </form>
     </div>
