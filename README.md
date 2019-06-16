@@ -9,3 +9,7 @@
 - [x] Score
 - [x] Customize
   - [ ] Just click Start, game start
+
+### ToDo
+
+- Auto direct to index.html to index.html?width=1000&height=1000&pixelSize=20&gameSpeed=60
