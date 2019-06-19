@@ -8,7 +8,7 @@
 - [x] Penalty
 - [x] Score
 - [x] Customize
-  - [ ] Just click Start, game start
+  - [ ] Just click "Start" button, game start
 
 ### ToDo
 
