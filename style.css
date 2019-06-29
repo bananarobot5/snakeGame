@@ -10,19 +10,12 @@ button {
   background-color: #546e7a;
 }
 
-#startBtn,
-#restartBtn {
+#startBtn {
   background-color: #009688;
   font-size: 20px;
 }
 
-#submitBtn {
-  background-color: #03a9f4;
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-#form {
+#input_form {
   margin-top: 15px;
 }
 
