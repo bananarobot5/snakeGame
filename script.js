@@ -43,7 +43,10 @@ function gameinit() {
   directionX = 1;
   directionY = 0;
   score = 0;
-} //변수값 초기화
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath();
+} //변수값 초기화, Canvas clear
 
 function createSnake() {
   ctx.fillStyle = "#4CAF50";
@@ -90,6 +93,7 @@ function showResult() {
 function gameOver() {
   clearInterval(gameLoop);
   showResult();
+  startBtn.disabled = false;
   console.log("Game Over");
 } //showResult(); game 반복 멈춤:게임 중지
 
@@ -103,13 +107,14 @@ function game() {
 
   const snakeHeadX = snakeBody[snakeLength - 1].x + directionX;
   const snakeHeadY = snakeBody[snakeLength - 1].y + directionY;
+
   if (
     snakeHeadX == -1 ||
     snakeHeadY == -1 ||
     snakeHeadX == xSize ||
     snakeHeadY == ySize
   ) {
-    gameOver(1000, 1000, 20);
+    gameOver();
   }
 
   snakeBody.push({ x: snakeHeadX, y: snakeHeadY });
@@ -160,6 +165,7 @@ function keyPush(evt) {
 
 function startGame() {
   console.log("Start Game!");
+  startBtn.disabled = true;
   gameinit();
   gameLoop = setInterval(game, gameSpeed);
 } //gameinit, game 반복 실행; gameLoop 선언
@@ -167,31 +173,6 @@ function startGame() {
 function init() {
   document.addEventListener("keydown", keyPush);
   startBtn.addEventListener("click", startGame);
-
-  document.getElementById("left").addEventListener("click", () => {
-    if (!(directionX === 1 && directionY === 0)) {
-      directionX = -1;
-      directionY = 0;
-    }
-  });
-  document.getElementById("up").addEventListener("click", () => {
-    if (!(directionX === 0 && directionY === 1)) {
-      directionX = 0;
-      directionY = -1;
-    }
-  });
-  document.getElementById("right").addEventListener("click", () => {
-    if (!(directionX === -1 && directionY === 0)) {
-      directionX = 1;
-      directionY = 0;
-    }
-  });
-  document.getElementById("down").addEventListener("click", () => {
-    if (!(directionX === 0 && directionY === -1)) {
-      directionX = 0;
-      directionY = 1;
-    }
-  });
 } //키 입력, 버튼 클릭하여 startGame() 실행
 
 init();
