@@ -1,6 +1,6 @@
 # snakeGame
 
-[Click here to try it!](https://broot5.github.io/snakeGame/index.html?width=1000&height=1000&pixelSize=20&gameSpeed=60)
+[Click here to try it!](https://broot5.github.io/snakeGame/index.html)
 
 ### Features
 
