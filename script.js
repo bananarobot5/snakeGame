@@ -91,7 +91,6 @@ function gameOver() {
   clearInterval(gameLoop);
   showResult();
   console.log("Game Over");
-  startBtn.disabled = false;
 } //showResult(); game 반복 멈춤:게임 중지
 
 function game() {
@@ -161,7 +160,6 @@ function keyPush(evt) {
 
 function startGame() {
   console.log("Start Game!");
-  startBtn.disabled = true;
   gameinit();
   gameLoop = setInterval(game, gameSpeed);
 } //gameinit, game 반복 실행; gameLoop 선언
@@ -169,6 +167,31 @@ function startGame() {
 function init() {
   document.addEventListener("keydown", keyPush);
   startBtn.addEventListener("click", startGame);
+
+  document.getElementById("left").addEventListener("click", () => {
+    if (!(directionX === 1 && directionY === 0)) {
+      directionX = -1;
+      directionY = 0;
+    }
+  });
+  document.getElementById("up").addEventListener("click", () => {
+    if (!(directionX === 0 && directionY === 1)) {
+      directionX = 0;
+      directionY = -1;
+    }
+  });
+  document.getElementById("right").addEventListener("click", () => {
+    if (!(directionX === -1 && directionY === 0)) {
+      directionX = 1;
+      directionY = 0;
+    }
+  });
+  document.getElementById("down").addEventListener("click", () => {
+    if (!(directionX === 0 && directionY === -1)) {
+      directionX = 0;
+      directionY = 1;
+    }
+  });
 } //키 입력, 버튼 클릭하여 startGame() 실행
 
 init();
