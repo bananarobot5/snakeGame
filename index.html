@@ -11,36 +11,28 @@
     <canvas id="canvas" width="1000px" height="1000px"></canvas>
     <div>
       <button id="startBtn">Start</button>
-      <button id="restartBtn">Restart</button>
     </div>
-    <div id="form">
-      <form method="get" id="form1">
-        <div>
-          <button for="width">Width</button><br />
-          <input type="number" name="width" min="1" max="1000" value="1000" />
-        </div>
+    <div id="input_form">
+      <div>
+        <button for="width">Width</button><br />
+        <input type="number" id="width" min="1" max="1000" value="1000" />
+      </div>
 
-        <div>
-          <button for="height">Height</button><br />
-          <input type="number" name="height" min="1" max="1000" value="1000" />
-        </div>
+      <div>
+        <button for="height">Height</button><br />
+        <input type="number" id="height" min="1" max="1000" value="1000" />
+      </div>
 
-        <div>
-          <button for="pixelSize">Pixel Size</button><br />
-          <input type="number" name="pixelSize" value="20" />
-        </div>
+      <div>
+        <button for="pixelSize">Pixel Size</button><br />
+        <input type="number" id="pixelSize" value="20" />
+      </div>
 
-        <div>
-          <button for="gameSpeed">Game Speed</button><br />
-          <input type="number" name="gameSpeed" value="60" />
-        </div>
-
-        <div>
-          <button type="submit" id="submitBtn">Submit</button>
-        </div>
-      </form>
+      <div>
+        <button for="gameSpeed">Game Speed</button><br />
+        <input type="number" id="gameSpeed" value="60" />
+      </div>
     </div>
-    <script src="setting.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
