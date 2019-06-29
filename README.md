@@ -8,8 +8,8 @@
 - [x] Penalty
 - [x] Score
 - [x] Customize
-  - [ ] Just click "Start" button, game start
+  - [x] Just click "Start" button, game start
 
-### ToDo
+### Note
 
-- Auto direct to index.html to index.html?width=1000&height=1000&pixelSize=20&gameSpeed=60
+If you use Mozilla Firefox, you should click canvas after click the start button.
