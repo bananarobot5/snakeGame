@@ -1,4 +1,34 @@
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const startBtn = document.getElementById("startBtn");
+let width = parseInt(document.getElementById("width").value);
+let height = parseInt(document.getElementById("height").value);
+let pixelSize = parseInt(document.getElementById("pixelSize").value);
+let gameSpeed = parseInt(document.getElementById("gameSpeed").value);
+let xSize = width / pixelSize; //20~40 적당
+let ySize = height / pixelSize;
+let snakeBody = [
+  { x: 1, y: 15 },
+  { x: 2, y: 15 },
+  { x: 3, y: 15 },
+  { x: 4, y: 15 }
+];
+let snakeLength = 4;
+let food = {
+  x: Math.floor(Math.random() * xSize - 1) + 1,
+  y: Math.floor(Math.random() * ySize - 1) + 1
+};
+let directionX = 1;
+let directionY = 0;
+let score = 0;
+
 function gameinit() {
+  width = parseInt(document.getElementById("width").value);
+  height = parseInt(document.getElementById("height").value);
+  pixelSize = parseInt(document.getElementById("pixelSize").value);
+  gameSpeed = parseInt(document.getElementById("gameSpeed").value);
+  xSize = width / pixelSize; //20~40 적당
+  ySize = height / pixelSize;
   snakeBody = [
     { x: 1, y: 15 },
     { x: 2, y: 15 },
@@ -6,12 +36,12 @@ function gameinit() {
     { x: 4, y: 15 }
   ];
   snakeLength = 4;
-  directionX = 1;
-  directionY = 0;
   food = {
     x: Math.floor(Math.random() * xSize - 1) + 1,
     y: Math.floor(Math.random() * ySize - 1) + 1
   };
+  directionX = 1;
+  directionY = 0;
   score = 0;
 } //변수값 초기화
 
@@ -61,6 +91,7 @@ function gameOver() {
   clearInterval(gameLoop);
   showResult();
   console.log("Game Over");
+  startBtn.disabled = false;
 } //showResult(); game 반복 멈춤:게임 중지
 
 function game() {
@@ -130,6 +161,7 @@ function keyPush(evt) {
 
 function startGame() {
   console.log("Start Game!");
+  startBtn.disabled = true;
   gameinit();
   gameLoop = setInterval(game, gameSpeed);
 } //gameinit, game 반복 실행; gameLoop 선언
@@ -137,7 +169,6 @@ function startGame() {
 function init() {
   document.addEventListener("keydown", keyPush);
   startBtn.addEventListener("click", startGame);
-  restartBtn.addEventListener("click", startGame);
 } //키 입력, 버튼 클릭하여 startGame() 실행
 
 init();
