@@ -84,9 +84,9 @@ function showResult() {
   ctx.fillStyle = "#FFC107";
   ctx.fillRect(0, 0, 200, 200);
   ctx.fillStyle = "#3F51B5";
-  ctx.font = "40px Calibri";
+  ctx.font = "40px sans-serif";
   ctx.fillText("Result", 45, 60);
-  ctx.font = "30px Calibri";
+  ctx.font = "30px sans-serif";
   ctx.fillText(`Score : ${score}`, 45, 150);
 } //Result 화면 표시
 
